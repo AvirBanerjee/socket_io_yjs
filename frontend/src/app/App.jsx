@@ -27,25 +27,18 @@ function App() {
     )
   }
 
-
-
-
   const handleJoin = (e) => {
     e.preventDefault()
     setUsername(e.target.username.value)
     window.history.pushState({}, "", "?username=" + e.target.username.value)
 
-
-
   }
 
   useEffect(() => {
 
-    console.log(username)
-
     if (username) {
 
-      const provider = new SocketIOProvider("/", "monaco", ydoc, {
+      const provider = new SocketIOProvider("http://localhost:4000", "monaco", ydoc, {
         autoConnect: true,
       })
 
