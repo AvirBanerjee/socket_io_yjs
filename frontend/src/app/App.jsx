@@ -16,6 +16,7 @@ function App() {
   const ydoc = useMemo(() => new Y.Doc(), [])
   const yText = useMemo(() => ydoc.getText("monaco"), [ ydoc ])
 
+
   const handleMount = (editor) => {
     editorRef.current = editor
 
@@ -25,12 +26,19 @@ function App() {
       new Set([ editorRef.current ]),
     )
   }
+
+
+
+
   const handleJoin = (e) => {
     e.preventDefault()
     setUsername(e.target.username.value)
     window.history.pushState({}, "", "?username=" + e.target.username.value)
+
+
+
   }
-  
+
   useEffect(() => {
 
     console.log(username)
